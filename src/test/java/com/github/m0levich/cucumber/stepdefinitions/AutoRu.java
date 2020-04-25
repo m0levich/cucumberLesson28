@@ -2,25 +2,29 @@ package com.github.m0levich.cucumber.stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.github.m0levich.config.ConfigReader;
+import com.github.m0levich.config.PropertiesConfigReader;
 import com.github.m0levich.pages.MainPage;
 import com.github.m0levich.pages.MarkPage;
 import com.github.m0levich.pages.ModelPage;
+import io.cucumber.java.Before;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.То;
 import io.cucumber.java.ru.Тогда;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.title;
 
 public class AutoRu {
+    private ConfigReader configReader = new PropertiesConfigReader();
 
-    @BeforeMethod
+    @Before
     public void initDriver() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
+        Configuration.browser = configReader.getValue("browser");
     }
 
     @Когда("перейти {string}")
