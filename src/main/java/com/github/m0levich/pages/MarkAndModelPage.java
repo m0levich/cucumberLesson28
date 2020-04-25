@@ -13,7 +13,6 @@ public abstract class MarkAndModelPage extends BasePage {
     public static int getSumOnButton() {
         String textInButton = $(By.xpath("//span[@class='ButtonWithLoader__content']")).text();
         List<String> text = new ArrayList();
-        System.out.println(textInButton);
         for (String a : textInButton.split(" ")) {
             text.add(a);
         }
