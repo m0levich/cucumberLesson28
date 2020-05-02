@@ -12,7 +12,7 @@ public class PropertiesConfigReader implements ConfigReader {
         try (InputStream config = contextClassLoader.getResourceAsStream("config/config.properties")){
             properties.load(config);
         } catch (IOException e) {
-            throw new IllegalStateException(e);
+            throw new IllegalStateException("Ошибка чтения файла конфигурации", e);
         }
     }
 

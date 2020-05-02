@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources/features",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         glue = "com.github.m0levich.cucumber.stepdefinitions",
-        tags = "(@all or @lesson28) and @example1")
+        tags = "(@all or @lesson28) and @example2and3")
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 }

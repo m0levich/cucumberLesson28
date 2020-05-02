@@ -34,7 +34,7 @@ public class AutoRu {
 
     @Тогда("заголовок содержит {string}")
     public void namePageCheck(String string) {
-        title().contains(string);
+        Assert.assertTrue(title().contains(string),"Wrong title");
     }
 
     @Тогда("^сохранить количество объявлений, отображаемых после названия автомобиля ([^\"]*)$")
@@ -49,7 +49,7 @@ public class AutoRu {
 
     @То("отображается кнопка с текстом, содержащим количество объявлений как и сохраненного ранее количества")
     public void checkCountOnTheButtonMark() {
-        Assert.assertEquals(MarkPage.getSumOnButton(), MainPage.getCountMarkAuto());
+        Assert.assertEquals(MarkPage.getSumOnButton(), MainPage.countMarkAuto,"Wrong amount in button");
     }
 
     @То("^сохранить количество объявлений конкретной ([^\"]*) автомобиля$")
@@ -64,6 +64,6 @@ public class AutoRu {
 
     @Тогда("отображается кнопка с текстом, содержащим количество объявлений по определенной модели")
     public void checkCountOnTheButtonModel() {
-        Assert.assertEquals(ModelPage.getSumOnButton(), MarkPage.getCountModelAuto());
+        Assert.assertEquals(ModelPage.getSumOnButton(), MarkPage.countModelAuto,"Wrong model amount in button");
     }
 }

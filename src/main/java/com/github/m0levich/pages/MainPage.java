@@ -1,19 +1,15 @@
 package com.github.m0levich.pages;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage extends BasePage{
 
-    private static int countMarkAuto = 0;
-
-    public static int getCountMarkAuto() {
-        return countMarkAuto;
-    }
+    public static int countMarkAuto = 0;
 
     public static void saveCount(String mark){
-        countMarkAuto = 0;
         String selector = String.format("//div[@class='IndexMarks__col']/descendant::div[.='%s']/following-sibling::div[@class='IndexMarks__item-count']", mark);
         countMarkAuto = Integer.parseInt($(By.xpath(selector)).text());
     }
@@ -25,8 +21,10 @@ public class MainPage extends BasePage{
     }
 
     public static void closeCookie() {
-        if ($(By.xpath("//span[.='Понятно, спасибо']")).isDisplayed()) {
-            $(By.xpath("//span[.='Понятно, спасибо']")).doubleClick();
+        SelenideElement buttonForCloseModal = $(By.xpath("//span[.='Понятно, спасибо']"));
+        if (buttonForCloseModal.isDisplayed()) {
+            buttonForCloseModal.doubleClick();
         }
     }
 }
+

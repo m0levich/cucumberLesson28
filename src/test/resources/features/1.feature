@@ -16,12 +16,12 @@
 
     @example1
     Примеры:
-      | марка   | модель |
-      | MINI    | Cabrio |
+      | марка | модель |
+      | MINI  | Cabrio |
 
     @example2and3
     Примеры:
       | марка   | модель |
       | Porsche | Macan  |
-      | Ford    | Focus  |
+      | Skoda   | Karoq  |
 
